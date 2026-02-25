@@ -1,75 +1,129 @@
-# React + TypeScript + Vite
+🎨 Adrin Ring Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, responsive portfolio built with React, TypeScript, and Vite, showcasing projects, skills, and work experience. Designed for speed, accessibility, and smooth user experience, with an emphasis on clean code and advanced front-end techniques.
 
-Currently, two official plugins are available:
+🖥 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Fully responsive mobile-first design
 
-## React Compiler
+Smooth animations using GSAP
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+Section navigation with scroll-aware active tabs
 
-Note: This will impact Vite dev & build performances.
+Accessible: keyboard focus, ARIA labels, and screen reader friendly
 
-## Expanding the ESLint configuration
+Performance-optimized with Vite HMR
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+SEO-friendly structure
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+⚡ Tech Stack
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+Framework: React 18 + TypeScript
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Bundler: Vite
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+Styling: Tailwind CSS + custom responsive utilities
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Animations: GSAP for smooth transitions
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+Linting & Code Quality: ESLint with type-checked rules
+
+Version Control & Deployment: GitHub + Netlify
+
+🧩 Code Highlights
+
+TypeScript-first approach: Strongly typed components for maintainable code
+
+Responsive Navbar: Mobile-friendly, scroll-sensitive navigation
+
+Section Observer: Tracks visible section and updates active state dynamically
+
+Dark Mode: System preference detection with seamless toggle
+
+GSAP Animations: Entrance animations and scroll interactions
+
+🚀 Getting Started
+Prerequisites
+
+Node.js v18+
+
+Yarn or npm
+
+Installation
+# Clone the repo
+git clone https://github.com/Andrik-Singh/portfolio
+cd portfolio
+
+# Install dependencies
+npm install
+# or
+yarn
+Running Locally
+# Start development server
+npm run dev
+# or
+yarn dev
+
+Visit http://localhost:5173 to see the portfolio live.
+
+Building for Production
+npm run build
+# or
+yarn build
+
+The production-ready files will be in the dist folder, ready for deployment (e.g., Netlify, Vercel).
+
+🛠 ESLint & Code Quality
+
+This portfolio uses type-checked ESLint rules for high-quality, maintainable code:
+
+tseslint.configs.strictTypeChecked
+tseslint.configs.stylisticTypeChecked
+eslint-plugin-react-x
+eslint-plugin-react-dom
+
+These ensure:
+
+No type errors
+
+Consistent code style
+
+React-specific best practices
+
+🌐 Deployment
+
+Netlify Auto-Deploy: Connected to GitHub, auto-deploys on push
+
+Manual Deploy: Drag-and-drop dist folder if needed
+
+Fully optimized for production with Vite build
+
+🔗 Live Demo
+
+Check it out here: https://andrik-singh-portfolio.netlify.app/
+
+📂 Project Structure
+src/
+├─ components/       # Reusable React components (Navbar, Tabs, Cards)
+├─ pages/            # Main page content
+├─ assets/           # Images, icons, and other static files
+├─ styles/           # Tailwind customizations
+├─ lib/              # Utilities, hooks
+├─ main.tsx          # App entry point
+🎯 Future Enhancements
+
+Add contact form with email integration
+
+Expand projects section with filters and live demos
+
+Integrate NextAuth for authenticated sections
+
+Add user theme preference persistence
+
+💬 Contact
+
+Email: andriksingh78
+
+GitHub: [github.com/Andrik-Singh](https://github.com/Andrik-Singh)
+
+LinkedIn: [linkedin.com/in/adrin-ring](https://www.linkedin.com/in/andrik-singh-a21116334/)
