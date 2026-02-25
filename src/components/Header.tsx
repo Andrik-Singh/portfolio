@@ -127,7 +127,7 @@ export default function PillNav() {
       className="
         fixed top-5 
         left-1/2 
-        sm:-translate-x-1/2 z-50
+        -translate-x-1/2 z-50
         flex 
         sm:items-center justify-between
         px-2 py-2
@@ -137,8 +137,7 @@ export default function PillNav() {
         border border-white/40 dark:border-neutral-700/50
         shadow-[0_8px_32px_rgba(0,0,0,0.10),0_1.5px_4px_rgba(0,0,0,0.06)]
         ring-1 ring-black/[0.04]
-        sm:w-xs
-        w-[300px]
+        w-[90%] max-w-xs sm:max-w-sm
       "
       role="navigation"
       aria-label="Main navigation"
