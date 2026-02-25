@@ -19,32 +19,7 @@ export default function PillNav() {
   const tl = useRef<gsap.core.Tween | null>(null);
   const [activeTab, setActiveTab] = useState<string | null>(null);
 
-  // Move the sliding indicator to the hovered/active link
-  const moveIndicator = (el: HTMLAnchorElement) => {
-    const nav = navRef.current;
-    const indicator = indicatorRef.current;
-    if (!nav || !indicator) return;
-
-    const navRect = nav.getBoundingClientRect();
-    const linkRect = el.getBoundingClientRect();
-
-    gsap.to(indicator, {
-      x: linkRect.left - navRect.left - 6, // 6px = inner padding of nav
-      width: linkRect.width,
-      opacity: 1,
-      duration: 0.35,
-      ease: "power2.out",
-    });
-  };
-
-  const hideIndicator = () => {
-    if (activeTab) return; // keep visible if a tab is active
-    gsap.to(indicatorRef.current, {
-      opacity: 0,
-      duration: 0.25,
-    });
-  };
-
+ 
   useGSAP(() => {
     // Nav entrance
     gsap.fromTo(
@@ -59,8 +34,6 @@ export default function PillNav() {
         delay: 0.2,
       },
     );
-
-    // Links stagger
     gsap.fromTo(
       linksRef.current.filter(Boolean),
       { opacity: 0, y: 12 },
@@ -74,24 +47,7 @@ export default function PillNav() {
       },
     );
   }, []);
-
-  useEffect(() => {
-    const links = linksRef.current;
-
-    links.forEach((link) => {
-      if (!link) return;
-
-      link.addEventListener("mouseenter", () => {
-        moveIndicator(link);
-        gsap.to(link, { y: -2, duration: 0.3, ease: "power2.out" });
-      });
-
-      link.addEventListener("mouseleave", () => {
-        hideIndicator();
-        gsap.to(link, { y: 0, duration: 0.3, ease: "power2.out" });
-      });
-    });
-  }, [activeTab]);
+  
 
   useEffect(() => {
     const handleScroll = () => {
@@ -169,14 +125,20 @@ export default function PillNav() {
       ref={navRef}
       style={{ opacity: 0 }} 
       className="
-        fixed top-5 left-1/2 -translate-x-1/2 z-50
-        flex items-center gap-1 px-2 py-2
+        fixed top-5 
+        left-1/2 
+        sm:-translate-x-1/2 z-50
+        flex 
+        sm:items-center justify-between
+        px-2 py-2
         rounded-full
         bg-white/70 dark:bg-neutral-900/70
         backdrop-blur-md
         border border-white/40 dark:border-neutral-700/50
         shadow-[0_8px_32px_rgba(0,0,0,0.10),0_1.5px_4px_rgba(0,0,0,0.06)]
         ring-1 ring-black/[0.04]
+        sm:w-xs
+        w-[300px]
       "
       role="navigation"
       aria-label="Main navigation"
@@ -204,13 +166,14 @@ export default function PillNav() {
             onClick={() => setActiveTab(tab.id)}
             aria-current={isActive ? "page" : undefined}
             className={`
-              relative z-10 rounded-full px-5 py-2 text-sm font-medium
+              relative z-10 rounded-full px-4 py-2 text-sm font-medium
               transition-colors duration-200 select-none outline-none
+              flex items-center justify-center
               focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-1
               ${
                 isActive
                   ? "bg-neutral-900 text-white dark:bg-white dark:text-neutral-900 shadow-sm"
-                  : "text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white"
+                  : "text-neutral-600 dark:text-neutral-300 hover:text-neutral-900 dark:hover:text-white hover:bg-slate-200"
               }
             `}
           >

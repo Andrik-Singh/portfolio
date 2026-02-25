@@ -6,28 +6,24 @@ import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { useGSAP } from "@gsap/react";
 
 gsap.registerPlugin(ScrollTrigger);
-
-// ── Data ──────────────────────────────────────────────────────────────────────
-const featured = {
-  title: "NoteTaker2",
-  description:
-    "A real-time collaborative rich text platform built with CRDT-based synchronization using Liveblocks and Yjs. Architected with Next.js App Router, Server Actions, and a fully type-safe PostgreSQL + Drizzle backend.",
-  tags: [
-    "Next.js",
-    "TypeScript",
-    "Liveblocks",
-    "Yjs",
-    "Tiptap",
-    "PostgreSQL",
-    "Drizzle ORM",
-  ],
-  year: "2024",
-  live: "https://note-taker2-seven.vercel.app",
-  github: "https://github.com/Andrik-Singh/NoteTaker2",
-  gradient: "linear-gradient(135deg, #f6c89a 0%, #e8a070 40%, #d4855a 100%)",
-};
-
 const projects = [
+  {
+    title: "NoteTaker2",
+    description:
+      "A real-time collaborative rich text platform built with CRDT-based synchronization using Liveblocks and Yjs. Architected with Next.js App Router, Server Actions, and a fully type-safe PostgreSQL + Drizzle backend.",
+    tags: [
+      "Next.js",
+      "TypeScript",
+      "Liveblocks",
+      "Yjs",
+      "Tiptap",
+      "PostgreSQL",
+      "Drizzle ORM",
+    ],
+    year: "2026",
+    live: "https://note-taker2-seven.vercel.app",
+    github: "https://github.com/Andrik-Singh/NoteTaker2",
+  },
   {
     title: "Gym AI",
     description:
@@ -40,24 +36,21 @@ const projects = [
       "Gemini API",
       "Better Auth",
     ],
-    year: "2024",
+    year: "2025",
     live: "https://gym-lac-nine.vercel.app",
     github: "https://github.com/Andrik-Singh/gym",
-    accent: "#c8753a",
   },
   {
     title: "MovieClone",
     description:
-      "Full-stack movie discovery platform powered by TMDB with authenticated watchlists, server-driven rendering, and structured database modeling.",
-    tags: ["Next.js", "PostgreSQL", "Drizzle ORM", "Clerk", "TMDB API"],
-    year: "2024",
+      "A movie discovery platform powered by TMDB with authenticated watchlists, server-driven rendering,structured database modeling and ai assistance to find you movies based on your preference",
+    tags: ["Next.js", "PostgreSQL", "Drizzle ORM", "Clerk", "TMDB API","Vercel SDK"],
+    year: "2025",
     live: "https://watchmovies-six.vercel.app",
     github: "https://github.com/Andrik-Singh/movieClone",
-    accent: "#b06030",
   },
 ];
 
-// ── Icons ─────────────────────────────────────────────────────────────────────
 function IconGithub() {
   return (
     <svg className="h-4 w-4" fill="currentColor" viewBox="0 0 24 24">
@@ -102,16 +95,13 @@ function IconArrow() {
   );
 }
 
-// ── Component ─────────────────────────────────────────────────────────────────
 export default function Projects() {
   const sectionRef = useRef<HTMLElement>(null);
   const headingRef = useRef<HTMLDivElement>(null);
-  const featuredRef = useRef<HTMLDivElement>(null);
   const cardRefs = useRef<(HTMLDivElement | null)[]>([]);
 
   useGSAP(
     () => {
-      // Heading
       gsap.fromTo(
         headingRef.current,
         { opacity: 0, y: 32 },
@@ -123,21 +113,6 @@ export default function Projects() {
           scrollTrigger: { trigger: headingRef.current, start: "top 85%" },
         },
       );
-
-      // Featured card
-      gsap.fromTo(
-        featuredRef.current,
-        { opacity: 0, y: 48 },
-        {
-          opacity: 1,
-          y: 0,
-          duration: 1,
-          ease: "power2.out",
-          scrollTrigger: { trigger: featuredRef.current, start: "top 85%" },
-        },
-      );
-
-      // Small cards stagger
       cardRefs.current.forEach((card, i) => {
         gsap.fromTo(
           card,
@@ -166,7 +141,6 @@ export default function Projects() {
           "linear-gradient(160deg, #fdf6ee 0%, #faecd8 40%, #f5e6d3 75%, #ede0d4 100%)",
       }}
     >
-      {/* Paper texture */}
       <div
         className="pointer-events-none absolute inset-0 opacity-[0.05] mix-blend-multiply"
         style={{
@@ -174,8 +148,6 @@ export default function Projects() {
           backgroundSize: "256px 256px",
         }}
       />
-
-      {/* Ambient orb */}
       <div
         className="pointer-events-none absolute -bottom-24 -left-24 h-[450px] w-[450px] rounded-full"
         style={{
@@ -186,7 +158,6 @@ export default function Projects() {
       />
 
       <div className="relative mx-auto max-w-5xl">
-        {/* Heading */}
         <div ref={headingRef} className="mb-14 opacity-0">
           <p
             className="mb-2 text-sm tracking-widest text-[#b07040] uppercase"
@@ -220,109 +191,6 @@ export default function Projects() {
           </p>
         </div>
 
-        {/* ── Featured project ── */}
-        <div
-          ref={featuredRef}
-          className="group mb-8 opacity-0 overflow-hidden rounded-2xl border border-[#e4ccb0]/70 bg-[#fffaf4]/80 shadow-sm backdrop-blur-sm transition-shadow duration-300 hover:shadow-lg"
-        >
-          <div className="grid lg:grid-cols-2">
-            {/* Image / gradient placeholder */}
-            <div
-              className="relative h-56 lg:h-auto overflow-hidden"
-              style={{ background: featured.gradient }}
-            >
-              {/* Swap the div above for an <Image> once you have a real screenshot */}
-              <div className="absolute inset-0 flex items-center justify-center">
-                <span className="text-5xl opacity-20 select-none">◈</span>
-              </div>
-
-              {/* Year badge */}
-              <div className="absolute top-4 left-4">
-                <span
-                  className="rounded-full bg-black/15 px-3 py-1 text-xs font-medium text-white/80 backdrop-blur-sm"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  {featured.year}
-                </span>
-              </div>
-
-              {/* Featured label */}
-              <div className="absolute top-4 right-4">
-                <span
-                  className="rounded-full bg-white/20 px-3 py-1 text-xs font-semibold text-white backdrop-blur-sm"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  Featured
-                </span>
-              </div>
-            </div>
-
-            {/* Content */}
-            <div className="flex flex-col justify-between p-8 lg:p-10">
-              <div>
-                <h3
-                  className="mb-3 font-serif text-2xl font-normal text-[#2d1f14]"
-                  style={{ fontFamily: "'Playfair Display', 'Georgia', serif" }}
-                >
-                  {featured.title}
-                </h3>
-                <p
-                  className="mb-6 text-[0.975rem] leading-relaxed text-[#7a5c48]"
-                  style={{ fontFamily: "'DM Sans', sans-serif" }}
-                >
-                  {featured.description}
-                </p>
-
-                {/* Tags */}
-                <div className="mb-8 flex flex-wrap gap-2">
-                  {featured.tags.map((tag) => (
-                    <span
-                      key={tag}
-                      className="rounded-full border border-[#dcc9b0] bg-[#fff3e6] px-3 py-1 text-xs font-medium text-[#9a6a48]"
-                      style={{ fontFamily: "'DM Sans', sans-serif" }}
-                    >
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              </div>
-
-              {/* Links */}
-              <div className="flex items-center gap-3">
-                {featured.live && (
-                  <a
-                    href={featured.live}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group/btn flex items-center gap-2 rounded-full px-5 py-2.5 text-sm font-semibold text-white shadow-sm transition-transform duration-200 hover:scale-[1.03] active:scale-[0.97]"
-                    style={{
-                      background: "linear-gradient(135deg, #c8753a, #d9895a)",
-                    }}
-                  >
-                    Live site
-                    <span className="transition-transform duration-200 group-hover/btn:translate-x-0.5">
-                      <IconExternal />
-                    </span>
-                  </a>
-                )}
-                {featured.github && (
-                  <a
-                    href={featured.github}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 rounded-full border border-[#d4b090] bg-[#fff8f0]/60 px-5 py-2.5 text-sm font-medium text-[#7a5c48] backdrop-blur-sm transition-all duration-200 hover:border-[#c8753a] hover:text-[#c8753a]"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  >
-                    <IconGithub />
-                    GitHub
-                  </a>
-                )}
-              </div>
-            </div>
-          </div>
-        </div>
-
-        {/* ── Project grid ── */}
         <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {projects.map((project, i) => (
             <div
@@ -333,14 +201,15 @@ export default function Projects() {
               className="group opacity-0 flex flex-col justify-between rounded-2xl border border-[#e4ccb0]/60 bg-[#fffaf4]/70 p-7 shadow-sm backdrop-blur-sm transition-all duration-300 hover:shadow-md hover:-translate-y-1"
             >
               <div>
-                {/* Top row */}
                 <div className="mb-5 flex items-start justify-between">
-                  <span
-                    className="rounded-full border border-[#dcc9b0] bg-[#fff3e6] px-3 py-1 text-xs font-medium text-[#9a6a48]"
-                    style={{ fontFamily: "'DM Sans', sans-serif" }}
-                  >
-                    {project.year}
-                  </span>
+                  <div className="flex items-center gap-2">
+                    <span
+                      className="rounded-full border border-[#dcc9b0] bg-[#fff3e6] px-3 py-1 text-xs font-medium text-[#9a6a48]"
+                      style={{ fontFamily: "'DM Sans', sans-serif" }}
+                    >
+                      {project.year}
+                    </span>
+                  </div>
                   <div className="flex items-center gap-2">
                     {project.github && (
                       <a
@@ -366,24 +235,18 @@ export default function Projects() {
                     )}
                   </div>
                 </div>
-
-                {/* Title */}
                 <h3
                   className="mb-2.5 font-serif text-xl font-normal text-[#2d1f14] transition-colors duration-200 group-hover:text-[#c8753a]"
                   style={{ fontFamily: "'Playfair Display', 'Georgia', serif" }}
                 >
                   {project.title}
                 </h3>
-
-                {/* Description */}
                 <p
                   className="mb-5 text-sm leading-relaxed text-[#7a5c48]"
                   style={{ fontFamily: "'DM Sans', sans-serif" }}
                 >
                   {project.description}
                 </p>
-
-                {/* Tags */}
                 <div className="flex flex-wrap gap-1.5">
                   {project.tags.map((tag) => (
                     <span
@@ -396,8 +259,6 @@ export default function Projects() {
                   ))}
                 </div>
               </div>
-
-              {/* Footer link */}
               {project.live && (
                 <a
                   href={project.live}
@@ -412,8 +273,6 @@ export default function Projects() {
             </div>
           ))}
         </div>
-
-        {/* View all CTA */}
         <div className="mt-12 flex justify-center">
           <a
             href="https://github.com/yourhandle"
