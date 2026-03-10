@@ -26,18 +26,16 @@ const skillGroups = [
     category: "Backend",
     icon: <Database className="h-4 w-4" />,
     description: "Designing scalable APIs and data layers.",
-    skills: ["Node.js", "PostgreSQL", "Drizzle ORM", "REST APIs", "tRPC"],
+    skills: ["Node.js", "PostgreSQL", "Drizzle ORM", "REST APIs"],
   },
   {
     category: "Tooling & DevOps",
     icon: <Settings2 className="h-4 w-4" />,
     description: "Shipping, testing, and maintaining production apps.",
     skills: [
-      "Git & GitHub",
-      "Docker",
+      "Git & GitHub"
       "Vercel",
       "CI/CD",
-      "Testing (Jest, Playwright)",
     ],
   },
 ];
