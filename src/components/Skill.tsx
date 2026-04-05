@@ -34,7 +34,6 @@ const skillGroups = [
     description: "Shipping, testing, and maintaining production apps.",
     skills: [
       "Git & GitHub",
-      "Docker",
       "Vercel",
     ],
   },

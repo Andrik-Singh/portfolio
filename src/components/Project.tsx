@@ -274,7 +274,7 @@ export default function Projects() {
         </div>
         <div className="mt-12 flex justify-center">
           <a
-            href="https://github.com/yourhandle"
+            href="https://github.com/Andrik-Singh"
             target="_blank"
             rel="noopener noreferrer"
             className="group flex items-center gap-2 rounded-full border border-[#d4b090] bg-[#fff8f0]/60 px-7 py-3 text-sm font-medium text-[#7a5c48] backdrop-blur-sm transition-all duration-300 hover:border-[#c8753a] hover:text-[#c8753a]"
