@@ -36,7 +36,7 @@ const projects = [
       "Zustand",
     ],
     year: "2026",
-    live: "https://pokribble-production.up.railway.app/",
+    live: "https://pokribble.onrender.com/",
     github: "https://github.com/Andrik-Singh/pokribble",
   },
   {
