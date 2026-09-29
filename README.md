@@ -47,4 +47,4 @@ Email: andriksingh78
 
 GitHub: [github.com/Andrik-Singh](https://github.com/Andrik-Singh)
 
-LinkedIn: [linkedin.com/in/adrin-ring](https://www.linkedin.com/in/andrik-singh-a21116334/)
+LinkedIn: [linkedin.com/in/andriksingh](https://www.linkedin.com/in/andrik-singh-a21116334/)
